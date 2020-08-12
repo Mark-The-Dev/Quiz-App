@@ -64,11 +64,11 @@ let wrong = 0;
 
 let isCorrect = true;
 
-let pictureArr = [`<img src= 'photos/dwight-and-fam.jpg' alt="Dwight and his family"></img>`,
-  `<img src="photos/kelly-ryan.png" alt="Kelly and Ryan"></img>`,
-  `<img src='photos/baby-name.jpg' alt="Baby Question"></img>`,
-  `<img src='photos/pam-roy.jpg' alt="Pam and Roy"></img>`,
-  `<img src='photos/wedding-question.jpg' alt="Wedding Question"></img>`
+let pictureArr = [`<img src= 'photos/dwight-and-fam.jpg' alt='Dwight and his family'></img>`,
+  `<img src="photos/kelly-ryan.png" alt='Kelly and Ryan'></img>`,
+  `<img src='photos/baby-name.jpg' alt='Baby Question'></img>`,
+  `<img src='photos/pam-roy.jpg' alt='Pam and Roy'></img>`,
+  `<img src='photos/wedding-question.jpg' alt='Wedding Question'></img>`
 ];
 
 let isFeedback = false;
@@ -90,7 +90,8 @@ function addHtml() {
   <button id= "start" type= "submit" class= 'mainPage'>Start The Quiz!</button>
   <p>Welcome to a difficult quiz on the hit TV show The Office. This Quiz is very hard and you will be graded!</p>
   <img src="photos/dwight-main.jpg" alt="Dwight Main">
-</div>`;
+</div>
+<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer>`;
 
   // <img src="photos/kelly-ryan.png" alt="Kelly and Ryan">
 
@@ -108,7 +109,8 @@ ${questionPhoto()}
     <label for= 'answer4'>${question.answers[3]}</label><br>
     <button class = 'submit-answer' type = 'submit'>Submit Answer!</button>
 </form>
-<h3><span>Question #${store.questionNumber + 1} / 5 </span><span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>`;
+<h3><span>Question #${store.questionNumber + 1} / 5 </span><span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>
+<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer>`;
 
 
 
@@ -156,15 +158,17 @@ function results() {
 <h2>Nice Job!</h2>
 <p>${(store.score / 5) * 100}%</p>
 <button class="button-restart-quiz">START QUIZ AGAIN!</button>
-</div> `;
+</div>
+<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer> `;
 
   let badResult =
     `<div>
-<img src= "photos/stanley-fail.jpg" alt="Sad Stanley">
+<img src= "photos/did-i-stutter.jpg" alt="Sad Stanley">
 <h2>You failed!</h2>
 <p>${(store.score / 5) * 100}%</p>
 <button class="button-restart-quiz">START QUIZ AGAIN!</button>
-</div> `;
+</div>
+<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer> `;
 
   if (results >= 4) {
     return goodResult;
@@ -184,15 +188,17 @@ function addHtmlFeedback() {
 <div class ='reults'>Great Job! ${question.correctAnswer} is correct!</div>
 <button id= "next" type= "submit" class= 'next-question'>Next Question!</button>
 <h3><span>Question #${store.questionNumber + 1} / 5 </span>
-<span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>`;
+<span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>
+<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer>`;
 
-  let Incorrect = `<div class ='question-box'>
+  let incorrect = `<div class ='question-box'>
   ${questionPhoto()}
 <div class= 'question'>${question.question}</div>
 <div class ='reults'>Oh no, you got it wrong! ${question.correctAnswer} is the correct answer.</div>
 <button id= "next" type= "submit" class= 'next-question'>Next Question!</button>
 <h3><span>Question #${store.questionNumber + 1} / 5 </span>
-<span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>`;
+<span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>
+<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer>`;
 
   let getResultsButtonIncorrect = `<div class ='question-box'>
   ${questionPhoto()}
@@ -200,7 +206,8 @@ function addHtmlFeedback() {
 <div class ='reults'>Oh no, you got it wrong! ${question.correctAnswer} is the correct answer.</div>
 <button id= "next" type= "submit" class= 'next-question'>Get Results!</button>
 <h3><span>Question #${store.questionNumber + 1} / 5 </span>
-<span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>`;
+<span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>
+<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer>`;
 
   let getResultsButtonCorrect = `<div class ='question-box'>
   ${questionPhoto()}
@@ -208,7 +215,8 @@ function addHtmlFeedback() {
 <div class ='reults'>Great Job! ${question.correctAnswer} is correct!</div>
 <button id= "next" type= "submit" class= 'next-question'>Get Results!</button>
 <h3><span>Question #${store.questionNumber + 1} / 5 </span>
-<span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>`;
+<span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>
+<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer>`;
 
   if (isCorrect === true && store.questionNumber === 4) {
     return getResultsButtonCorrect;
@@ -220,7 +228,7 @@ function addHtmlFeedback() {
     return correct;
   }
   else {
-    return Incorrect;
+    return incorrect;
   }
 }
 
@@ -255,12 +263,12 @@ function submitAnswer() {
     if (store.questions[store.questionNumber].correctAnswer === answer) {
       isCorrect = true;
       store.score++;
-      isFeedback = true
+      isFeedback = true;
       renderPage();
     } else {
       wrong++;
       isCorrect = false;
-      isFeedback = true
+      isFeedback = true;
       renderPage();
     }
   });
@@ -271,11 +279,11 @@ function resumeQuiz() {
     event.preventDefault();
     if (store.questionNumber < 4) {
       store.questionNumber++;
-      isFeedback = false
+      isFeedback = false;
       renderPage();
     } else {
       counter++;
-      isFeedback = false
+      isFeedback = false;
       renderPage();
     }
   });
