@@ -74,6 +74,7 @@ let pictureArr = [`<img src= 'photos/dwight-and-fam.jpg' alt='Dwight and his fam
 let isFeedback = false;
 
 
+
 /*
 TODO:
 Combine render and renderfeedback
@@ -91,7 +92,8 @@ function addHtml() {
   <p>Welcome to a difficult quiz on the hit TV show The Office. This Quiz is very hard and you will be graded!</p>
   <img src="photos/dwight-main.jpg" alt="Dwight Main">
 </div>
-<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer>`;
+<div class = 'bottom'><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></div>
+`;
 
   // <img src="photos/kelly-ryan.png" alt="Kelly and Ryan">
 
@@ -110,7 +112,7 @@ ${questionPhoto()}
     <button class = 'submit-answer' type = 'submit'>Submit Answer!</button>
 </form>
 <h3><span>Question #${store.questionNumber + 1} / 5 </span><span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>
-<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer>`;
+<div class = 'bottom'><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></div>`;
 
 
 
@@ -158,8 +160,8 @@ function results() {
 <h2>Nice Job!</h2>
 <p>${(store.score / 5) * 100}%</p>
 <button class="button-restart-quiz">START QUIZ AGAIN!</button>
-</div>
-<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer> `;
+</div> 
+<div class = 'bottom'><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></div>`;
 
   let badResult =
     `<div>
@@ -168,7 +170,7 @@ function results() {
 <p>${(store.score / 5) * 100}%</p>
 <button class="button-restart-quiz">START QUIZ AGAIN!</button>
 </div>
-<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer> `;
+<div class = 'bottom'><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></div> `;
 
   if (results >= 4) {
     return goodResult;
@@ -189,7 +191,7 @@ function addHtmlFeedback() {
 <button id= "next" type= "submit" class= 'next-question'>Next Question!</button>
 <h3><span>Question #${store.questionNumber + 1} / 5 </span>
 <span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>
-<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer>`;
+<div class = 'bottom'><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></div>`;
 
   let incorrect = `<div class ='question-box'>
   ${questionPhoto()}
@@ -198,7 +200,7 @@ function addHtmlFeedback() {
 <button id= "next" type= "submit" class= 'next-question'>Next Question!</button>
 <h3><span>Question #${store.questionNumber + 1} / 5 </span>
 <span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>
-<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer>`;
+<div class = 'bottom'><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></div>`;
 
   let getResultsButtonIncorrect = `<div class ='question-box'>
   ${questionPhoto()}
@@ -207,7 +209,7 @@ function addHtmlFeedback() {
 <button id= "next" type= "submit" class= 'next-question'>Get Results!</button>
 <h3><span>Question #${store.questionNumber + 1} / 5 </span>
 <span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>
-<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer>`;
+<div class = 'bottom'><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></div>`;
 
   let getResultsButtonCorrect = `<div class ='question-box'>
   ${questionPhoto()}
@@ -216,7 +218,7 @@ function addHtmlFeedback() {
 <button id= "next" type= "submit" class= 'next-question'>Get Results!</button>
 <h3><span>Question #${store.questionNumber + 1} / 5 </span>
 <span>Your Score: ${store.score} Correct, and ${wrong} Incorrect!</span></h3>
-<footer><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></footer>`;
+<div class = 'bottom'><h3>Produced by Mark Marcello & Caleb Jackson<h3><p>Questions and Photos provided by TheQuiz.com</p></div>`;
 
   if (isCorrect === true && store.questionNumber === 4) {
     return getResultsButtonCorrect;
@@ -254,6 +256,7 @@ function renderPage() {
   }
 
 }
+
 
 //This function tracks your score on submiting your answer and moves you forward.
 function submitAnswer() {
